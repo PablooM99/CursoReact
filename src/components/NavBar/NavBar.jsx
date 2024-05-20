@@ -23,14 +23,14 @@ const NavBar = () => {
         <Heading fontSize={'xl'} m={2}><Image src='src\assets\images\logo.webp' alt='Logo' w={'3rem'} h={'3rem'} /></Heading>
         <Menu>
             <MenuButton as={Button} rightIcon={<FaChevronDown />}>
-        Actions
+        Menú
             </MenuButton>
             <MenuList backgroundColor={'black'}>
-                <MenuItem backgroundColor={'black'} color={'white'} _hover={{bg: '#666'}}>Download</MenuItem>
-                <MenuItem backgroundColor={'black'} color={'white'} _hover={{bg: '#666'}}>Create a Copy</MenuItem>
-                <MenuItem backgroundColor={'black'} color={'white'} _hover={{bg: '#666'}}>Mark as Draft</MenuItem>
-                <MenuItem backgroundColor={'black'} color={'white'} _hover={{bg: '#666'}}>Delete</MenuItem>
-                <MenuItem backgroundColor={'black'} color={'white'} _hover={{bg: '#666'}}>Attend a Workshop</MenuItem>
+                <MenuItem backgroundColor={'black'} color={'white'} _hover={{bg: '#666'}}>Remeras</MenuItem>
+                <MenuItem backgroundColor={'black'} color={'white'} _hover={{bg: '#666'}}>Pantalones</MenuItem>
+                <MenuItem backgroundColor={'black'} color={'white'} _hover={{bg: '#666'}}>Buzos</MenuItem>
+                <MenuItem backgroundColor={'black'} color={'white'} _hover={{bg: '#666'}}>Zapatillas</MenuItem>
+                <MenuItem backgroundColor={'black'} color={'white'} _hover={{bg: '#666'}}>Relojes</MenuItem>
             </MenuList>
         </Menu>
         <CartWidget />

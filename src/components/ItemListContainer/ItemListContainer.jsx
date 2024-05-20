@@ -1,12 +1,13 @@
-import React from 'react'
-import { Flex, Heading } from '@chakra-ui/react'
+import React from "react";
+import { Box, Flex, Heading } from "@chakra-ui/react";
 
-const ItemListContainer = ({title}) => {
+const ItemListContainer = ({ title }) => {
   return (
-    <Flex justify={'center'} align={'center'} m={4}>
-        <Heading>{title}</Heading>
-    </Flex>
-  )
-}
+    <Flex justify={"center"} align={"center"} m={4}>
+      <Heading>{title}</Heading>
 
-export default ItemListContainer
+    </Flex>
+  );
+};
+
+export default ItemListContainer;
