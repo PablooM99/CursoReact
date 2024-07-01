@@ -1,3 +1,4 @@
+// ItemListContainer.jsx
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Box, Spinner } from '@chakra-ui/react';
@@ -12,7 +13,9 @@ const ItemListContainer = ({ search }) => {
 
   useEffect(() => {
     const fetchData = async () => {
+      await new Promise(resolve => setTimeout(resolve, 2000));
       setItems(products);
+
       let filtered = products;
 
       if (categoryId) {

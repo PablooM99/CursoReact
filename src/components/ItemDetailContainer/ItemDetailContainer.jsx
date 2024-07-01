@@ -1,15 +1,20 @@
+// ItemDetailContainer.jsx
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { Box, Image, Text, Button, Spinner, Flex } from '@chakra-ui/react';
 import { FaCartPlus } from 'react-icons/fa';
 import { products } from '../../products';
 import Swal from 'sweetalert2';
+import { useCart } from '../../context/CartContext';
+import ItemCount from '../ItemCount/ItemCount';
 
 const ItemDetailContainer = () => {
   const { itemId } = useParams();
   const [item, setItem] = useState(null);
   const [loading, setLoading] = useState(true);
   const [quantity, setQuantity] = useState(1);
+  const { addToCart } = useCart();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchItem = async () => {
@@ -21,24 +26,18 @@ const ItemDetailContainer = () => {
     fetchItem();
   }, [itemId]);
 
-  const handleIncrement = () => {
-    if (quantity < item.stock) {
-      setQuantity(quantity + 1);
-    }
-  };
-
-  const handleDecrement = () => {
-    if (quantity > 1) {
-      setQuantity(quantity - 1);
-    }
-  };
-
   const handleAddToCart = () => {
-    console.log('Añadir al carrito', item.id, quantity);
+    addToCart(item, quantity);
     Swal.fire({
       title: 'Producto añadido al carrito',
       icon: 'success',
-      confirmButtonText: 'OK'
+      showCancelButton: true,
+      confirmButtonText: 'OK',
+      cancelButtonText: 'Ir al carrito'
+    }).then((result) => {
+      if (result.dismiss === Swal.DismissReason.cancel) {
+        navigate('/cart');
+      }
     });
   };
 
@@ -62,11 +61,7 @@ const ItemDetailContainer = () => {
         <Text fontWeight="semibold" fontSize="2xl">{item.title}</Text>
         <Text mt="2">{item.description}</Text>
         <Text mt="2" fontSize="lg" color="teal.500">${item.price}</Text>
-        <Flex align="center" mt="4" justify="center">
-          <Button onClick={handleDecrement} colorScheme="teal" size="sm">-</Button>
-          <Text mx="4">{quantity}</Text>
-          <Button onClick={handleIncrement} colorScheme="teal" size="sm">+</Button>
-        </Flex>
+        <ItemCount stock={item.stock} quantity={quantity} setQuantity={setQuantity} />
         <Button
           mt="4"
           leftIcon={<FaCartPlus />}

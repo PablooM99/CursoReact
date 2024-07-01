@@ -1,15 +1,13 @@
+// NavBar.jsx
 import React from 'react';
-import { Box, Flex, Link, Input, Menu, MenuButton, MenuList, MenuItem, Button } from '@chakra-ui/react';
-import { Link as RouterLink, useNavigate } from 'react-router-dom';
+import { Box, Flex, Link, Menu, MenuButton, MenuList, MenuItem, Button } from '@chakra-ui/react';
+import { Link as RouterLink } from 'react-router-dom';
 import { FaShoppingCart } from 'react-icons/fa';
 import { ChevronDownIcon } from '@chakra-ui/icons';
+import { useCart } from '../../context/CartContext';
 
-const NavBar = ({ onSearch }) => {
-  const navigate = useNavigate();
-
-  const handleCategoryClick = (category) => {
-    navigate(`/category/${category}`);
-  };
+const NavBar = () => {
+  const { totalItems } = useCart();
 
   return (
     <Box bg="teal.500" p="4">
@@ -21,25 +19,22 @@ const NavBar = ({ onSearch }) => {
               Categorías
             </MenuButton>
             <MenuList>
-              <MenuItem onClick={() => handleCategoryClick('remeras')}>Remeras</MenuItem>
-              <MenuItem onClick={() => handleCategoryClick('pantalones')}>Pantalones</MenuItem>
-              <MenuItem onClick={() => handleCategoryClick('buzos')}>Buzos</MenuItem>
-              <MenuItem onClick={() => handleCategoryClick('zapatillas')}>Zapatillas</MenuItem>
-              <MenuItem onClick={() => handleCategoryClick('camperas')}>Camperas</MenuItem>
-              <MenuItem onClick={() => handleCategoryClick('accesorios')}>Accesorios</MenuItem>
-              <MenuItem onClick={() => handleCategoryClick('hombres')}>Hombres</MenuItem>
-              <MenuItem onClick={() => handleCategoryClick('mujeres')}>Mujeres</MenuItem>
-            </MenuList>
+              <MenuItem as={RouterLink} to="/category/remeras">Remeras</MenuItem>
+              <MenuItem as={RouterLink} to="/category/pantalones">Pantalones</MenuItem>
+              <MenuItem as={RouterLink} to="/category/buzos">Buzos</MenuItem>
+              <MenuItem as={RouterLink} to="/category/zapatillas">Zapatillas</MenuItem>
+              <MenuItem as={RouterLink} to="/category/camperas">Camperas</MenuItem>
+              <MenuItem as={RouterLink} to="/category/relojes">Relojes</MenuItem>
+              <MenuItem as={RouterLink} to="/category/hombres">Hombres</MenuItem>
+              <MenuItem as={RouterLink} to="/category/mujeres">Mujeres</MenuItem>
+              </MenuList>
           </Menu>
         </Flex>
         <Flex alignItems="center">
-          <Input
-            placeholder="Buscar productos"
-            onChange={(e) => onSearch(e.target.value)}
-            mr="4"
-            color="black"
-          />
-          <FaShoppingCart color="white" />
+          <Link as={RouterLink} to="/cart" color="white" display="flex" alignItems="center">
+            <FaShoppingCart />
+            {totalItems > 0 && <Box as="span" ml="1">{totalItems}</Box>}
+          </Link>
         </Flex>
       </Flex>
     </Box>
