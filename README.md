@@ -112,7 +112,7 @@ Formulario para completar los datos del usuario
 Pié de pagina con las redes sociales del eCommerce
 ## Contacto
 
-Para cualquier consulta o sugerencia, puedes contactarme a través de mi portafolio.
+
 
 ¡Gracias por visitar MP Indumentarias!
 
