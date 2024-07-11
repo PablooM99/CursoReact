@@ -1,5 +1,13 @@
 # MP Indumentarias - eCommerce
 
+## Logo
+
+![image](/CursoReactJS/src/assets/images/logo.webp)
+
+## vista previa
+
+### Descripción
+
 Bienvenido al proyecto MP Indumentarias, un eCommerce de indumentaria para hombres y mujeres construido con React, Vite, Firebase y Chakra UI. Este proyecto permite a los usuarios buscar y filtrar productos, agregar productos al carrito y realizar compras con la actualización automática del stock.
 
 ## Características
@@ -11,59 +19,34 @@ Bienvenido al proyecto MP Indumentarias, un eCommerce de indumentaria para hombr
 - **Alertas de SweetAlert:** Se muestran alertas de confirmación y error para mejorar la experiencia del usuario.
 - **Responsivo:** El diseño es responsivo y se adapta a diferentes tamaños de pantalla.
 
-## Tecnologías Utilizadas
+## Dependencias:
 
-- **React:** Biblioteca para construir interfaces de usuario.
-- **Vite:** Herramienta de desarrollo rápida y ligera.
-- **Firebase:** Base de datos en tiempo real para almacenar productos y gestionar el stock.
-- **Chakra UI:** Biblioteca de componentes de React para el diseño de la interfaz de usuario.
-- **SweetAlert:** Biblioteca para mostrar alertas bonitas y personalizables.
+  chakra-ui/icons
+  chakra-ui/react
+  emotion/react
+  emotion/styled
+  firebase
+  framer-motion
+  react
+  react-dom
+  react-icons
+  react-router-dom
+  sweetalert2
 
-## Instalación y Ejecución
+## Instalación:
+#### List
+- clonar repositorio
+  - git clone https://github.com/PablooM99/CursoReact
+- Moverte a la carpeta del proyecto
+  - cd CursoReact
+- Instalar las dependencias
+  - npm install
+- compilamos
+  - npm run dev
 
-1. **Clonar el repositorio:**
-
-
-- **git clone** https://github.com/tuusuario/mp-indumentarias.git
-cd mp-indumentarias
-
-## Instalar dependencias:
-
-npm install
-
-## Configurar Firebase:
-
-Crea un archivo firebase.js en el directorio src y configura tu proyecto de Firebase:
-
-- **javascript**
-
-import { initializeApp } from 'firebase/app';
-import { getFirestore } from 'firebase/firestore';
-
-const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_AUTH_DOMAIN",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_STORAGE_BUCKET",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-export const db = getFirestore(app);
-Iniciar el servidor de desarrollo:
-
-
-
-npm run dev
-Abrir el navegador:
-
-Abre tu navegador y navega a http://localhost:5173 para ver la aplicación en funcionamiento.
 
 ## Estructura del Proyecto
 
-- **Copiar código**
 mp-indumentarias/
 ├── public/
 ├── src/
@@ -101,20 +84,32 @@ mp-indumentarias/
 ├── README.md
 ├── vite.config.js
 
-## Contribuir
+#### NavBar
 
-Si deseas contribuir a este proyecto, por favor sigue los siguientes pasos:
+Boton inicio de la pagina
+Menú de categorías
+Carrito
 
-Haz un fork del proyecto.
-Crea una nueva rama (git checkout -b feature/nueva-caracteristica).
-Realiza los cambios necesarios y haz commit (git commit -am 'Agregar nueva característica').
-Haz push a la rama (git push origin feature/nueva-caracteristica).
-Abre un Pull Request.
+#### Body
 
-## Licencia
+Listado de productos
+Detalle de producto
 
-Este proyecto está bajo la Licencia M. Consulta el archivo LICENSE para más detalles.
+#### Navegación
 
+Enrutamiento entre las diferentes vistas
+
+#### Carrito
+
+Vista del carrito de compras
+
+#### Checkout
+
+Formulario para completar los datos del usuario
+
+#### Footer
+
+Pié de pagina con las redes sociales del eCommerce
 ## Contacto
 
 Para cualquier consulta o sugerencia, puedes contactarme a través de mi portafolio.
