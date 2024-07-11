@@ -1,4 +1,3 @@
-// NavBar.jsx
 import React from 'react';
 import { Box, Flex, Link, Menu, MenuButton, MenuList, MenuItem, Button } from '@chakra-ui/react';
 import { Link as RouterLink } from 'react-router-dom';
@@ -24,10 +23,10 @@ const NavBar = () => {
               <MenuItem as={RouterLink} to="/category/buzos">Buzos</MenuItem>
               <MenuItem as={RouterLink} to="/category/zapatillas">Zapatillas</MenuItem>
               <MenuItem as={RouterLink} to="/category/camperas">Camperas</MenuItem>
-              <MenuItem as={RouterLink} to="/category/relojes">Relojes</MenuItem>
+              <MenuItem as={RouterLink} to="/category/accesorios">Accesorios</MenuItem>
               <MenuItem as={RouterLink} to="/category/hombres">Hombres</MenuItem>
               <MenuItem as={RouterLink} to="/category/mujeres">Mujeres</MenuItem>
-              </MenuList>
+            </MenuList>
           </Menu>
         </Flex>
         <Flex alignItems="center">

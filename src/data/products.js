@@ -1,6 +1,5 @@
 export const products = [
     {
-      id: 1,
       categories: ['remeras', 'hombres'],
       title: 'Remera básica',
       description: 'Remera de algodón, varios colores.',
@@ -9,7 +8,6 @@ export const products = [
       stock: 10
     },
     {
-      id: 2,
       categories: ['pantalones', 'hombres'],
       title: 'Pantalón jean',
       description: 'Jean clásico, azul.',
@@ -18,7 +16,6 @@ export const products = [
       stock: 13
     },
     {
-      id: 3,
       categories: ['buzos', 'hombres'],
       title: 'Buzo básico',
       description: 'Buzo de algodón, varios colores.',
@@ -27,7 +24,6 @@ export const products = [
       stock: 7
     },
     {
-      id: 4,
       categories: ['zapatillas', 'hombres'],
       title: 'Zapatilla básica',
       description: 'Zapatilla tela, varios colores.',
@@ -36,7 +32,6 @@ export const products = [
       stock: 6
     },
     {
-      id: 5,
       categories: ['accesorios', 'hombres'],
       title: 'Reloj básico',
       description: 'Reloj de acero, varios colores.',
@@ -45,7 +40,6 @@ export const products = [
       stock: 2
     },
     {
-      id: 6,
       categories: ['camperas', 'hombres'],
       title: 'Campera impermeable',
       description: 'Campera impermeable, varios colores.',
@@ -54,7 +48,6 @@ export const products = [
       stock: 9
     },
     {
-      id: 7,
       categories: ['remeras', 'mujeres'],
       title: 'Remera básica',
       description: 'Remera de algodón, varios colores.',
@@ -63,7 +56,6 @@ export const products = [
       stock: 10
     },
     {
-      id: 8,
       categories: ['pantalones', 'mujeres'],
       title: 'Pantalón joggin',
       description: 'Joggin clásico, azul.',
@@ -72,7 +64,6 @@ export const products = [
       stock: 13
     },
     {
-      id: 9,
       categories: ['buzos', 'mujeres'],
       title: 'Buzo básico',
       description: 'Buzo de algodón, varios colores.',
@@ -81,7 +72,6 @@ export const products = [
       stock: 7
     },
     {
-      id: 10,
       categories: ['zapatillas', 'mujeres'],
       title: 'Zapatilla básica',
       description: 'Zapatilla tela, varios colores.',
@@ -90,7 +80,6 @@ export const products = [
       stock: 6
     },
     {
-      id: 11,
       categories: ['accesorios', 'mujeres'],
       title: 'Reloj básico',
       description: 'Reloj de acero, varios colores.',
@@ -99,7 +88,6 @@ export const products = [
       stock: 2
     },
     {
-      id: 12,
       categories: ['camperas', 'mujeres'],
       title: 'Campera impermeable',
       description: 'Campera impermeable, varios colores.',

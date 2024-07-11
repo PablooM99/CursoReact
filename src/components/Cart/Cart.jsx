@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Button, Flex, Text, Image } from '@chakra-ui/react';
 import { FaTrash } from 'react-icons/fa';
 import { useCart } from '../../context/CartContext';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link, Link as RouterLink } from 'react-router-dom';
 
 const Cart = () => {
   const { cart, removeFromCart, clearCart, totalPrice } = useCart();
@@ -40,7 +40,7 @@ const Cart = () => {
           <Box mt={5} textAlign="center">
             <Text fontSize="xl">Total: ${totalPrice}</Text>
             <Button onClick={clearCart} colorScheme="red" mt={3} mr={3}>Vaciar Carrito</Button>
-            <Button colorScheme="teal" mt={3}>Confirmar Compra</Button>
+            <Button as={RouterLink} to="/checkout" colorScheme="teal" mt={3}>Finalizar Compra</Button>
           </Box>
         </>
       )}

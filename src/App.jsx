@@ -7,6 +7,7 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 import Cart from './components/Cart/Cart';
 import { CartProvider } from './context/CartContext';
 import Footer from './components/Footer/Footer'
+import Checkout from './components/Checkout/Checkout';
 
 const App = () => {
   const [search, setSearch] = useState('');
@@ -21,6 +22,7 @@ const App = () => {
             <Route path="/category/:categoryId" element={<ItemListContainer search={search} />} />
             <Route path="/item/:itemId" element={<ItemDetailContainer />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path='/checkout' element={<Checkout />} />
           </Routes>
           <Footer />
         </Router>

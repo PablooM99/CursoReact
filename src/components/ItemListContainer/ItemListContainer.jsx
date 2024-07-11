@@ -1,9 +1,9 @@
-// ItemListContainer.jsx
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Box, Spinner } from '@chakra-ui/react';
 import ItemList from '../ItemList/ItemList';
-import { products } from '../../products';
+import { db } from '../../config/firebase';
+import { collection, getDocs, query, where } from 'firebase/firestore';
 
 const ItemListContainer = ({ search }) => {
   const { categoryId } = useParams();
@@ -11,30 +11,37 @@ const ItemListContainer = ({ search }) => {
   const [filteredItems, setFilteredItems] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  const getData = async () => {
+    const collectionRef = collection(db, 'products');
+    let queryRef;
+
+    if (categoryId) {
+      queryRef = query(collectionRef, where('categories', 'array-contains', categoryId));
+    } else {
+      queryRef = collectionRef;
+    }
+
+    const querySnapshot = await getDocs(queryRef);
+    const products = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+
+
+    setItems(products);
+
+    let filtered = products;
+
+    if (search) {
+      filtered = filtered.filter(item => 
+        item.title.toLowerCase().includes(search.toLowerCase())
+      );
+    }
+
+    setFilteredItems(filtered);
+    setLoading(false);
+  };
+
   useEffect(() => {
-    const fetchData = async () => {
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      setItems(products);
-
-      let filtered = products;
-
-      if (categoryId) {
-        filtered = filtered.filter(item => 
-          Array.isArray(item.categories) && item.categories.includes(categoryId)
-        );
-      }
-
-      if (search) {
-        filtered = filtered.filter(item => 
-          item.title.toLowerCase().includes(search.toLowerCase())
-        );
-      }
-
-      setFilteredItems(filtered);
-      setLoading(false);
-    };
-
-    fetchData();
+    setLoading(true);
+    getData();
   }, [categoryId, search]);
 
   return (
