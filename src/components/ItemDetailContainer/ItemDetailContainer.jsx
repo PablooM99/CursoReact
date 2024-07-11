@@ -13,7 +13,7 @@ const ItemDetailContainer = () => {
   const [item, setItem] = useState(null);
   const [loading, setLoading] = useState(true);
   const [quantity, setQuantity] = useState(1);
-  const { addToCart } = useCart();
+  const { cart, addToCart } = useCart();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -35,6 +35,29 @@ const ItemDetailContainer = () => {
   }, [itemId]);
 
   const handleAddToCart = () => {
+    const cartItem = cart.find(cartItem => cartItem.product.id === item.id);
+    const totalQuantity = cartItem ? cartItem.quantity + quantity : quantity;
+
+    if (item.stock <= 0) {
+      Swal.fire({
+        title: 'Producto sin stock',
+        text: 'Este producto no tiene stock disponible',
+        icon: 'error',
+        confirmButtonText: 'OK'
+      });
+      return;
+    }
+
+    if (totalQuantity > item.stock) {
+      Swal.fire({
+        title: 'Stock insuficiente',
+        text: 'No puedes agregar más cantidad de la disponible en stock',
+        icon: 'error',
+        confirmButtonText: 'OK'
+      });
+      return;
+    }
+
     addToCart(item, quantity);
     Swal.fire({
       title: 'Producto añadido al carrito',

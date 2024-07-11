@@ -1,11 +1,18 @@
-// src/components/ItemCount/ItemCount.jsx
 import React from 'react';
 import { Flex, Button, Text } from '@chakra-ui/react';
+import Swal from 'sweetalert2';
 
 const ItemCount = ({ stock, quantity, setQuantity }) => {
   const handleIncrement = () => {
     if (quantity < stock) {
       setQuantity(quantity + 1);
+    } else {
+      Swal.fire({
+        title: 'Cantidad excedida',
+        text: 'No puedes agregar más cantidad de la disponible en stock',
+        icon: 'error',
+        confirmButtonText: 'OK'
+      });
     }
   };
 
